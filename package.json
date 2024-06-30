@@ -3,20 +3,20 @@
   "version": "1.0.0",
   "description": "Node command tool to generate TypeScript coverage report.",
   "main": "dist/lib/index.js",
-  "bin": {
-    "typescript-coverage-report": "dist/bin/typescript-coverage-report.js"
-  },
+  "bin": "dist/bin/typescript-coverage-report.js",
   "repository": "git@github.com:alexcanessa/typescript-coverage-report.git",
   "author": "Alex Canessa <canessa.alex@gmail.com>",
   "license": "MIT",
-  "private": false,
+  "files": [
+    "dist"
+  ],
   "dependencies": {
     "chalk": "4.1.2",
     "cli-table3": "^0.6.1",
     "commander": "^5.0.0",
     "ncp": "^2.0.0",
     "rimraf": "^3.0.2",
-    "semantic-ui-react": "^0.88.2",
+    "semantic-ui-react": "^2.1.5",
     "type-coverage-core": "^2.23.0"
   },
   "scripts": {
@@ -24,7 +24,7 @@
     "lint": "tsc --noEmit && eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
     "type-coverage": "node ./dist/bin/typescript-coverage-report",
     "docs": "yarn type-coverage --outputDir docs",
-    "prepublish": "yarn lint && yarn build",
+    "_prepublish": "yarn lint && yarn build",
     "test": "jest",
     "release": "gren release"
   },
@@ -64,9 +64,9 @@
     "typescript": "5.0.4"
   },
   "peerDependencies": {
-    "typescript": "2 || 3 || 4 || 5",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "typescript": "2 || 3 || 4 || 5"
   },
   "husky": {
     "hooks": {
