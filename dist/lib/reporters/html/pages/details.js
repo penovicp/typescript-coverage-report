@@ -1,0 +1,17 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.generateDetailsPage = void 0;
+var node_path_1 = __importDefault(require("node:path"));
+var generateDetailsPage = function (_a) {
+    var filename = _a.filename, sourceCode = _a.sourceCode, totalCount = _a.totalCount, correctCount = _a.correctCount, annotations = _a.annotations, threshold = _a.threshold;
+    var percentage = totalCount === 0 ? 100 : (correctCount * 100) / totalCount;
+    var percentageCoverage = percentage.toFixed(2) + "%";
+    var isValid = percentage >= threshold;
+    var relativePathToIndex = node_path_1.default.relative("".concat(filename, ".html"), "index.html");
+    return "\n    <div style=\"margin-top: 3em;\" class=\"ui container\">\n      <h1 class=\"ui header\">\n        <a href=\"".concat(relativePathToIndex, "\">TypeScript coverage report</a>\n      </h1>\n      <table class=\"ui table celled\" style=\"margin-top:2em\">\n        <thead>\n          <tr>\n            <th>Filename</th>\n            <th>Percent</th>\n            <th>Threshold</th>\n            <th>Total</th>\n            <th>Covered</th>\n            <th>Uncovered</th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr class=\"").concat(isValid ? "positive" : "negative", "\">\n            <td>").concat(filename, "</td>\n            <td>").concat(percentageCoverage, "</td>\n            <td>").concat(threshold, "%</td>\n            <td>").concat(totalCount, "</td>\n            <td>").concat(correctCount, "</td>\n            <td>").concat(totalCount - correctCount, "</td>\n          </tr>\n        </tbody>\n      </table>\n      <textarea\n        id=\"editor\"\n        readonly\n        style=\"margin-top: 3em;\"\n      >").concat(sourceCode, "</textarea>\n      <pre id=\"annotations\" style=\"display: none;\">\n        ").concat(JSON.stringify(annotations), "\n      </pre>\n    </div>\n  ");
+};
+exports.generateDetailsPage = generateDetailsPage;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZGV0YWlscy5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uL3NyYy9saWIvcmVwb3J0ZXJzL2h0bWwvcGFnZXMvZGV0YWlscy50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7QUFBQSx3REFBNkI7QUFrQnRCLElBQU0sbUJBQW1CLEdBQUcsVUFBQyxFQU9QO1FBTjNCLFFBQVEsY0FBQSxFQUNSLFVBQVUsZ0JBQUEsRUFDVixVQUFVLGdCQUFBLEVBQ1YsWUFBWSxrQkFBQSxFQUNaLFdBQVcsaUJBQUEsRUFDWCxTQUFTLGVBQUE7SUFFVCxJQUFNLFVBQVUsR0FBRyxVQUFVLEtBQUssQ0FBQyxDQUFDLENBQUMsQ0FBQyxHQUFHLENBQUMsQ0FBQyxDQUFDLENBQUMsWUFBWSxHQUFHLEdBQUcsQ0FBQyxHQUFHLFVBQVUsQ0FBQztJQUM5RSxJQUFNLGtCQUFrQixHQUFHLFVBQVUsQ0FBQyxPQUFPLENBQUMsQ0FBQyxDQUFDLEdBQUcsR0FBRyxDQUFDO0lBQ3ZELElBQU0sT0FBTyxHQUFHLFVBQVUsSUFBSSxTQUFTLENBQUM7SUFFeEMsSUFBTSxtQkFBbUIsR0FBRyxtQkFBSSxDQUFDLFFBQVEsQ0FBQyxVQUFHLFFBQVEsVUFBTyxFQUFFLFlBQVksQ0FBQyxDQUFDO0lBRTVFLE9BQU8sMkhBR1UsbUJBQW1CLGlhQWNmLE9BQU8sQ0FBQyxDQUFDLENBQUMsVUFBVSxDQUFDLENBQUMsQ0FBQyxVQUFVLGtDQUN0QyxRQUFRLG9DQUNSLGtCQUFrQixvQ0FDbEIsU0FBUyxxQ0FDVCxVQUFVLG9DQUNWLFlBQVksb0NBQ1osVUFBVSxHQUFHLFlBQVksNEtBUWxDLFVBQVUsMkZBRVQsSUFBSSxDQUFDLFNBQVMsQ0FBQyxXQUFXLENBQUMsbUNBR2xDLENBQUM7QUFDSixDQUFDLENBQUM7QUFuRFcsUUFBQSxtQkFBbUIsdUJBbUQ5QiJ9
