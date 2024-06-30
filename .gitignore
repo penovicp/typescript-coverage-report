@@ -3,3 +3,5 @@ dist/
 coverage/
 coverage-ts/
 yarn-error.log
+.yarn
+.yarnrc.yml
