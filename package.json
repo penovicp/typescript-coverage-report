@@ -1,15 +1,16 @@
 {
-  "name": "typescript-coverage-report",
-  "version": "1.0.0",
+  "name": "@penovicp/typescript-coverage-report",
+  "version": "1.0.0-beta.2",
   "description": "Node command tool to generate TypeScript coverage report.",
   "main": "dist/lib/index.js",
-  "bin": {
-    "typescript-coverage-report": "dist/bin/typescript-coverage-report.js"
-  },
-  "repository": "git@github.com:alexcanessa/typescript-coverage-report.git",
+  "bin": "dist/bin/typescript-coverage-report.js",
+  "repository": "github:penovicp/typescript-coverage-report",
   "author": "Alex Canessa <canessa.alex@gmail.com>",
   "license": "MIT",
-  "private": false,
+  "files": [
+    "assets",
+    "dist"
+  ],
   "dependencies": {
     "chalk": "4.1.2",
     "cli-table3": "^0.6.1",
@@ -23,7 +24,7 @@
     "lint": "tsc --noEmit && eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
     "type-coverage": "node ./dist/bin/typescript-coverage-report",
     "docs": "yarn type-coverage --outputDir docs",
-    "prepublish": "yarn lint && yarn build",
+    "_prepublish": "yarn lint && yarn build",
     "test": "jest",
     "release": "gren release"
   },
