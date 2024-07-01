@@ -35,10 +35,10 @@ export const generateDetailsPage = ({
       <h1 class="ui header">
         <a href="${relativePathToIndex}">TypeScript coverage report</a>
       </h1>
-      <table class="ui table celled fixed">
+      <table class="ui table celled" style="margin-top:2em">
         <thead>
           <tr>
-            <th class="ten wide">Filename</th>
+            <th>Filename</th>
             <th>Percent</th>
             <th>Threshold</th>
             <th>Total</th>
